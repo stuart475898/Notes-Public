@@ -21,6 +21,10 @@
 * Only pagable pages are included in the working set value - non-pagable pages such as AWE and large pages are not
 * Processes are allocated a minimum working set size (guaranteed RAM backed pages) and a maximum working set size (maximum RAM backed pages)
 
+###### References
+* https://docs.microsoft.com/en-us/windows/win32/procthread/process-working-set
+* https://docs.microsoft.com/en-us/windows/win32/memory/working-set
+
 # Shared Memory/Mapped Files
 * A processes virtual address space can be mapped to portions of files on disk e.g. DLLs
 * These can be shared between processes safely as the memory manager implements copy-on-write for these pages
@@ -29,9 +33,6 @@
 ###### References
 * https://docs.microsoft.com/en-us/windows/win32/memory/file-mapping
 
-###### References
-* https://docs.microsoft.com/en-us/windows/win32/procthread/process-working-set
-* https://docs.microsoft.com/en-us/windows/win32/memory/working-set
 
 # Virtual Address Space Page States
 * A processes pages can be in one of the following states:
