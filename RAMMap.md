@@ -4,8 +4,8 @@
 Breakdown of physical RAM by page state and usage type
 ![Use Counts](/Images/rammap1.png)
 ### Page State
-* **Active:** Pages already in a processes working set, and non-pagable pages. Does not generate a page fault
-* **Standby:** Pages removed from a processes working set but not cleared - used as cache and generates a soft fault
+* **Active:** Pages already in a process working set, and non-pageable pages. Does not generate a page fault
+* **Standby:** Pages removed from a process working set but not cleared - used as cache and generates a soft fault
 * **Modified:** Same as standby but contents had changed. Used as cache and generates a soft fault, although must be written to disk before its cleared
 * **Modified No Write:** Same as modified but does not need committing to disk on clearing
 * **Transition:** Pages locked in memory by a driver
@@ -17,14 +17,14 @@ Breakdown of physical RAM by page state and usage type
 * **Process Private:** Private pages
 * **Mapped File:** Shared pages that are backed by files on disk e.g. DLLs
 * **Shareable:** Shared pages that can be used by more than one process
-* **Page Table:** Pages used by the kernal to map virtual address space to backing RAM/PF/mapped files
+* **Page Table:** Pages used by the kernel to map virtual address space to backing RAM/PF/mapped files
 * **Paged Pool:** Pages allocated by the kernel that *can* be paged to disk
 * **Nonpaged Pool:** Pages allocated by the kernel that *cannot* be paged to disk
 * **System PTE:** Pages used to store Page Table Entries
 * **Session Private:** Pages used for sessions
 * **Metafile:** Pages storing metafiles e.g. NTFS MFT
 * **AWE:** Pages used by Address Windowing Extensions (always in RAM)
-* **Driver Locked:** Non-pageable pages allocated by drivers e.g. ballon driver or Hyper-V
+* **Driver Locked:** Non-pageable pages allocated by drivers e.g. balloon driver or Hyper-V
 * **Kernel Stack:** Kernel thread stack pages
 * **Unused:** Pages not in use - always either zeroed, free or bad
 * **Large Page:** Parge page pages
