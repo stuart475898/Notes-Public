@@ -28,3 +28,66 @@ Breakdown of physical RAM by page state and usage type
 * **Kernel Stack:** Kernel thread stack pages
 * **Unused:** Pages not in use - always either zeroed, free or bad
 * **Large Page:** Parge page pages
+
+## Processes
+Breaks down physical RAM consumption on a per process, per page list basis
+![Processes](/Images/rammap2.png)
+* **Process:** Process image name
+* **Session:** Session process is running in. Session 0 is system processes and services
+* **PID:** Process ID
+* **Private:** Private pages in the active page list
+* **Standby:** Pages in standby page list
+* **Modified:** Pages in modified page list
+* **Page Table:** RAM consumed by kernel page table entries for process
+* **Total:** Total physical RAM consumption
+
+## Priority Summary
+Shows physical RAM consumed by each priority in the standby page list. The repurposed column shows the sum size of pages that were repurposed for another process (so not soft faulted back into the working set).
+![Priority Summary](/Images/rammap3.png)
+
+## Physical Pages
+Breaks down physical RAM consumption by individual page
+![Physical Pages](/Images/rammap4.png)
+* **Physical Address:** Page physical RAM address
+* **List:** List the page is currently in
+* **Use:** Usable type of page (see *Use Count* above)
+* **Priority:** Priority of the page
+* **Image:** Contains part of a image mapped file
+* **Offset:** Page position in page file or mapped file
+* **File Name:** Name of mapped file backing the page
+* **Process:** Process owning private page
+* **Virtual Address:** Virtual address of page if in active list and not a mapped file
+* **Pool Tag:** Tag of paged/non-paged pool pages
+
+## Physical Ranges
+Shows ranged of physical RAM available - breaks in range normally taken up by drivers
+![Physical Ranges](/Images/rammap5.png)
+
+## File Summary
+Lists every mapped file in RAM, and how much of each list it consumes
+![File Summary](/Images/rammap6.png)
+* **Path:** Path to mapped file
+* **Total:** Total physical RAM consumed
+* **Standby:** Space consumed in standby list
+* **Modified:** Space consumed by modified list
+* **Modified No-Write:** Space consumed in modified no-write list
+* **Active:** Space comsumed by active list
+
+## File Details
+Lists further deatils of mapped files in RAM
+![File Details](/Images/rammap7.png)
+* **Path:** Path to mapped file
+* **Size:** Total physical RAM consumed
+* **Physical Address:** Physical address of page
+* **List:** List page is in
+* **Type:** Usage type (always mapped file)
+* **Priority:** Priority of page
+* **Image:** Indicates if page is executable
+* **Offset:** Position of page in mapped file
+
+# References
+https://techcommunity.microsoft.com/t5/ask-the-performance-team/introduction-to-the-new-sysinternals-tool-rammap/ba-p/374717
+
+Windows Internals, Part 1
+
+Troubleshooting with the Windows Sysinternals Tools | Mark E. Russinovich & Aaron Margosis 
